@@ -3062,6 +3062,7 @@ void t_java_generator::generate_field_value_meta_data(std::ostream& out, t_type*
     if (ttype->is_binary()) {
       indent(out) << ", true";
     } else if (type->is_typedef()) {
+      pwarning(1, "Cannot resolve type %s, using typedef", type->get_name().c_str());
       indent(out) << ", \"" << ((t_typedef*)type)->get_symbolic() << "\"";
     }
   }
